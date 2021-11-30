@@ -1,0 +1,34 @@
+{
+    "root": "libs/benchmarks",
+    "sourceRoot": "libs/benchmarks/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/node:package",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/benchmarks",
+                "tsConfig": "libs/benchmarks/tsconfig.lib.json",
+                "packageJson": "libs/benchmarks/package.json",
+                "main": "libs/benchmarks/src/index.ts",
+                "assets": ["libs/benchmarks/*.md"]
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/benchmarks/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/benchmarks"],
+            "options": {
+                "jestConfig": "libs/benchmarks/jest.config.js",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": []
+}

@@ -1,6 +1,7 @@
 {
     "version": 2,
     "projects": {
+        "benchmarks": "libs/benchmarks",
         "runner": "apps/runner"
     }
 }
