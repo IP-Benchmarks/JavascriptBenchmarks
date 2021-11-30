@@ -13,6 +13,8 @@ myArgs.forEach(async (element) => {
 
     const moduleToBenchmark = await import(element);
 
+    const testingFunction = moduleToBenchmark.test as ((callback:() => number) => number);
+    if(typeof testingFunction === ) {}
     Object.entries(moduleToBenchmark).forEach(([key, value]) => {
         console.log(key);
         console.log(value);
@@ -22,6 +24,7 @@ myArgs.forEach(async (element) => {
             const time = measureTime(value());
             nameTimeArr.push([camelCaseToSentence(key), time]);
         }
+
     });
 });
 

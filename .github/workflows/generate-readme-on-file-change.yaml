@@ -36,6 +36,7 @@ jobs:
 
         - name: Run benchmark for all modified files
           run: |
+            tsc
             for file in ${{ steps.changed-files.outputs.all_modified_files }}; do
               echo "$file was modified"
 

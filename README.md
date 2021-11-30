@@ -9,9 +9,9 @@ If you would like to include your custom benchmark please refer to the [Contribu
 
 # Contribution
 
--   Fork the repository
--   Create a fully typed typescript file containing the benchmark as title.
--   Add a `test` function that takes as parameter a callback(the benchmarking functions). The `test` function should contain the testing samples and feed them to the benchmarking functions passed from the callback. The benchmarking functions will be passed from the `main.ts` on run.
--   Run `ts-node main.ts <path-to-benchmark>` to test your benchmark.
--   Lint and format the file.
--   Submit the PR.
+- Fork the repository
+- Create a fully typed typescript file containing the benchmark as title.
+- Add a `test` function that takes as parameter a callback(the benchmarking functions). The `test` function should contain the testing samples and feed them to the benchmarking functions passed from the callback. The benchmarking functions will be passed from the `main.ts` on run.
+- Run `ts-node main.ts <path-to-benchmark>` to test your benchmark.
+- Lint and format the file.
+- Submit the PR.

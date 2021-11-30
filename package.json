@@ -2,9 +2,10 @@
   "name": "javascript-benchmarks",
   "version": "1.0.0",
   "description": "Javascript performance benchmarks",
-  "main": "\"\"",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
     "ts-node": "ts-node"
   },
   "repository": {
@@ -24,12 +25,15 @@
     "url": "https://github.com/IP-Benchmarks/JavascriptBenchmarks/issues"
   },
   "homepage": "https://github.com/IP-Benchmarks/JavascriptBenchmarks#readme",
-  "dependencies": {
-    "@octokit/rest": "^18.12.0",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.2"
-  },
   "devDependencies": {
-    "ts-node": "^10.4.0"
+    "@nrwl/cli": "13.2.3",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/tao": "13.2.3",
+    "@nrwl/workspace": "13.2.3",
+    "@types/node": "14.14.33",
+    "prettier": "^2.3.1",
+    "typescript": "~4.4.3",
+    "@octokit/rest": "^18.12.0",
+    "tslib": "^2.3.1"
   }
 }
