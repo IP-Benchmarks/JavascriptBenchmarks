@@ -1,13 +1,12 @@
 // example code
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
+import { Octokit } from '@octokit/rest';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as util from 'util';
 
 const readFilePromise = util.promisify(fs.readFile);
 
 // API client for working with GitHub data using promises
-const { Octokit } = require('@octokit/rest');
-
 const token = process.env['GITHUB_TOKEN'];
 
 if (token == null) {
@@ -41,7 +40,7 @@ async function run() {
 
     // TODO: updating file requires providing the SHA of existing blob
     //       this is not currently supported
-    const result = await octokit.repos.createOrUpdateFile({
+    const result = await octokit.repos.createOrUpdateFileContents({
         owner,
         repo,
         message: 'Adding an image to the repository',
