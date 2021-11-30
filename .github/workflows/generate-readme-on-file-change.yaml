@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+   paths:
+      - '**.js'
+      - '**.ts'
+    branches:
+      - main
+  pull_request:
+   paths:
+      - '**.js'
+      - '**.ts'
+    branches:
+      - main
+
+jobs:
+  run-benchmark:
+    runs-on: ubuntu-latest  # windows-latest | macos-latest
+      name: Run benchmarks for changed-files
+      steps:
+        - name: Get repo
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
+
+        - name: Get changed files
+          uses: actions/setup-node@v2
+
+        - name: Install dependencies
+          run: npm install
+        
+        - name: Get changed files
+          id: changed-files
+          uses: tj-actions/changed-files@v11.7
+
+        - name: Run benchmark for all modified files
+          run: |
+            for file in ${{ steps.changed-files.outputs.all_modified_files }}; do
+              echo "$file was modified"
+
+              case "$file" in
+              src/benchmarks/*.js ) 
+                      # node runnable
+                      node "$file"
+                      ;;
+              src/benchmarks/*.ts )
+                      # ts-node runnable
+                      npm run ts-node "$file"
+                      ;;
+              esac
+            done
+
+  generateReadme:
+    runs-on: ubuntu-latest  # windows-latest | macos-latest
+      name: Generate Readme
+
+    

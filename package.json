@@ -1,0 +1,35 @@
+{
+  "name": "javascript-benchmarks",
+  "version": "1.0.0",
+  "description": "Javascript performance benchmarks",
+  "main": "\"\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node": "ts-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IP-Benchmarks/JavascriptBenchmarks.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Typescript",
+    "benchmark",
+    "performance",
+    "operations-per-second"
+  ],
+  "author": "Iulian Preda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IP-Benchmarks/JavascriptBenchmarks/issues"
+  },
+  "homepage": "https://github.com/IP-Benchmarks/JavascriptBenchmarks#readme",
+  "dependencies": {
+    "@octokit/rest": "^18.12.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.4.0"
+  }
+}
