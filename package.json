@@ -1,39 +1,55 @@
 {
-  "name": "javascript-benchmarks",
-  "version": "1.0.0",
-  "description": "Javascript performance benchmarks",
-  "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test",
-    "ts-node": "ts-node"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IP-Benchmarks/JavascriptBenchmarks.git"
-  },
-  "keywords": [
-    "Javascript",
-    "Typescript",
-    "benchmark",
-    "performance",
-    "operations-per-second"
-  ],
-  "author": "Iulian Preda",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/IP-Benchmarks/JavascriptBenchmarks/issues"
-  },
-  "homepage": "https://github.com/IP-Benchmarks/JavascriptBenchmarks#readme",
-  "devDependencies": {
-    "@nrwl/cli": "13.2.3",
-    "@nrwl/nx-cloud": "latest",
-    "@nrwl/tao": "13.2.3",
-    "@nrwl/workspace": "13.2.3",
-    "@types/node": "14.14.33",
-    "prettier": "^2.3.1",
-    "typescript": "~4.4.3",
-    "@octokit/rest": "^18.12.0",
-    "tslib": "^2.3.1"
-  }
+    "name": "javascript-benchmarks",
+    "version": "1.0.0",
+    "description": "Javascript performance benchmarks",
+    "scripts": {
+        "start": "nx serve",
+        "build": "nx build",
+        "test": "nx test",
+        "lint": "nx lint",
+        "format": "nx format"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IP-Benchmarks/JavascriptBenchmarks.git"
+    },
+    "keywords": [
+        "Javascript",
+        "Typescript",
+        "benchmark",
+        "performance",
+        "operations-per-second"
+    ],
+    "author": "Iulian Preda",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/IP-Benchmarks/JavascriptBenchmarks/issues"
+    },
+    "homepage": "https://github.com/IP-Benchmarks/JavascriptBenchmarks#readme",
+    "devDependencies": {
+        "@nrwl/cli": "13.2.3",
+        "@nrwl/eslint-plugin-nx": "13.2.3",
+        "@nrwl/jest": "13.2.3",
+        "@nrwl/linter": "13.2.3",
+        "@nrwl/node": "^13.2.3",
+        "@nrwl/nx-cloud": "latest",
+        "@nrwl/tao": "13.2.3",
+        "@nrwl/workspace": "13.2.3",
+        "@octokit/rest": "^18.12.0",
+        "@types/jest": "27.0.2",
+        "@types/node": "14.14.33",
+        "@typescript-eslint/eslint-plugin": "~4.33.0",
+        "@typescript-eslint/parser": "~4.33.0",
+        "eslint": "7.32.0",
+        "eslint-config-prettier": "8.1.0",
+        "husky": "^7.0.4",
+        "jest": "27.2.3",
+        "prettier": "^2.3.1",
+        "ts-jest": "27.0.5",
+        "tslib": "^2.3.1",
+        "typescript": "~4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^2.0.0"
+    }
 }

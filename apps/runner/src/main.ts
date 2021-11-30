@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 
-import { camelCaseToSentence, measureTime } from './lib/benckmark';
+import { camelCaseToSentence, measureTime } from './app/util';
+
 
 const myArgs = process.argv.slice(2);
 
