@@ -4,3 +4,7 @@ export function camelCaseToSentence(camelCase: string) {
         .replace(/^./, (match) => match.toUpperCase())
         .trim();
 }
+
+export function dashToCamelCase(str: string) {
+    return str.replace(/-([a-z])/g, (foundStr) => foundStr[1].toUpperCase());
+}

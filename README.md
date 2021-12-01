@@ -28,5 +28,6 @@ The benchmark names are taken from the used file and function names.
 -   Add a `test` function that runs the benchmarks for the given code snippets. The `test` function should return an array of `IBenchmark` objects that contains all the tested functions and their results. For most random test samples you can use the generator functions from `libs/shared` library.
 -   Create a test using the `folder name` and the extension `spec.ts`. E.g. `json-stringify-array-vs-custom-stringify-array.spec.ts`
 -   Run the test to ensure the validity of the outputs as they should return the same values using the same samples.
+-   Export the functions created in the file inside the `libs/benchmarks/src/index.ts` file as the `name of the file created` without `-` in `camelCase`. This will not be used anywhere and will only ensure that the tree shaking will not remove the created files on build.
 -   Lint and format the file. This step will be done automatically on commit. Please do not bypass this step.
 -   Submit the PR.

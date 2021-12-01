@@ -3,6 +3,17 @@
     "sourceRoot": "libs/shared/src",
     "projectType": "library",
     "targets": {
+        "build": {
+            "executor": "@nrwl/node:package",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/shared",
+                "tsConfig": "libs/shared/tsconfig.lib.json",
+                "packageJson": "libs/shared/package.json",
+                "main": "libs/shared/src/index.ts",
+                "assets": ["libs/shared/*.md"]
+            }
+        },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],

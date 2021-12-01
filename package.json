@@ -3,12 +3,14 @@
     "version": "1.0.0",
     "description": "Javascript performance benchmarks",
     "scripts": {
+        "generate": "node tools/generators/benchmark-creator.js",
         "start": "nx serve",
         "build": "nx build",
         "test": "nx test",
         "lint": "nx lint",
         "format": "nx format",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "build:benchmarks": "nx build benchmarks"
     },
     "repository": {
         "type": "git",
