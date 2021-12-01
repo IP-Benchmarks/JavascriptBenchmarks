@@ -15,9 +15,7 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@javascript-benchmarks/benchmarks": [
-                "libs/benchmarks/src/index.ts"
-            ],
+            "@javascript-benchmarks/benchmarks": ["libs/benchmarks/src/index.ts"],
             "@javascript-benchmarks/shared": ["libs/shared/src/index.ts"]
         }
     },

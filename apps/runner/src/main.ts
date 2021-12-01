@@ -1,7 +1,5 @@
 import { promises as fs } from 'fs';
 
-import { camelCaseToSentence, measureTime } from './app/util';
-
 const myArgs = process.argv.slice(2);
 
 myArgs.forEach(async (element) => {
@@ -13,20 +11,18 @@ myArgs.forEach(async (element) => {
 
     const moduleToBenchmark = await import(element);
 
-    const testingFunction = moduleToBenchmark.test as (
-        callback: (...args: unknown[]) => unknown
-    ) => () => unknown;
+    const testingFunction = moduleToBenchmark.test as (callback: (...args: unknown[]) => unknown) => () => unknown;
     if (typeof testingFunction === 'function') {
         Object.entries(moduleToBenchmark).forEach(([key, value]) => {
             console.log(key);
             console.log(value);
 
-            const nameTimeArr = [];
+            // const nameTimeArr = [];
             if (typeof value === 'function') {
                 const fct = value as (...args: unknown[]) => unknown;
-                const benchmarkFunction = testingFunction(fct);
-                const time = measureTime(benchmarkFunction);
-                nameTimeArr.push([camelCaseToSentence(key), time]);
+                // const benchmarkFunction = testingFunction(fct);
+                // const time = measureTime(benchmarkFunction);
+                // nameTimeArr.push([camelCaseToSentence(key), time]);
             }
         });
     }
