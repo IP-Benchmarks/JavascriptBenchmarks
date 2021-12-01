@@ -2,6 +2,7 @@
     "version": 2,
     "projects": {
         "benchmarks": "libs/benchmarks",
-        "runner": "apps/runner"
+        "runner": "apps/runner",
+        "shared": "libs/shared"
     }
 }
