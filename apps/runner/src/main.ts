@@ -4,7 +4,7 @@ import {
     dashToCamelCase,
     getAllFiles,
     getFilesChanged,
-    IBenchmark
+    IBenchmark,
 } from '@javascript-benchmarks/shared';
 
 import { createBenchmarkDoc, createSummaryFile } from './app/generate-benchmark-docs';
