@@ -20,6 +20,7 @@
 //     series
 //         .tooltip()
 //         .position('right')
+
 //         .anchor('left-center')
 //         .offsetX(5)
 //         .offsetY(0)
