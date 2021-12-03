@@ -20,10 +20,11 @@ jobs:
             - name: Install dependencies
               run: npm install
 
+            - name: Build
+              run: npm run build
+
             - name: Run benchmark for all modified files
-              run: |
-                  npm run build
-                  npm start --commit-changes
+              run: npm start --commit-changes
 
             - name: Push changes
               uses: ad-m/github-push-action@master
