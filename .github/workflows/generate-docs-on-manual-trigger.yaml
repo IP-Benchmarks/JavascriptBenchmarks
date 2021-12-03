@@ -1,4 +1,4 @@
-name: Update all docs
+name: Update all docs on manual trigger
 
 on: workflow_dispatch
 
