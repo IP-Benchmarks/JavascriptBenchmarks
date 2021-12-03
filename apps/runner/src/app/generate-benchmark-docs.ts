@@ -1,4 +1,4 @@
-import { dashToSentence, IBenchmark, writeFileSync } from '@javascript-benchmarks/shared';
+import { dashToSentence, IBenchmark, readFileSync, writeFileSync } from '@javascript-benchmarks/shared';
 
 import { generateStackblitz } from './generate-stackblitz';
 
@@ -17,6 +17,8 @@ ${list}
 }
 
 export function createBenchmarkDoc(benchmarks: IBenchmark[], benchmarkPath: string): void {
+    const code = readFileSync(benchmarkPath);
+
     const benchmarkName = benchmarkPath.split('/').pop().replace('.ts', '');
     const outputFolderPath = `./docs`;
     const outputFilePath = `${benchmarkName}.md`;
@@ -24,17 +26,20 @@ export function createBenchmarkDoc(benchmarks: IBenchmark[], benchmarkPath: stri
     const readme = `
 # ${title}
 ## Benchmark Results
-### Best Benchmark: *${benchmarks.sort((a, b) => b.opsPerSec - a.opsPerSec).map((b) => b.name)[0]}*
+### Best Performance: *${benchmarks.sort((a, b) => b.opsPerSec - a.opsPerSec).map((b) => b.name)[0]}*
 ${benchmarks.map((b) => createCodeBlock(`${b.name}: ${b.opsPerSec.toFixed(3)} ops/s`)).join('\n\n')}
 
 ## Benchmark Code
-{% embed url="${generateStackblitz(benchmarkPath)}"" %}}  
+${createCodeBlock(code)}
+
+## Checkout Benchmark on Stackblitz
+{% embed url="${generateStackblitz(benchmarkPath)}" %} 
 `;
     writeFileSync(outputFolderPath, outputFilePath, readme);
 }
 
-function createCodeBlock(str: string): string {
-    return `\`\`\`
+function createCodeBlock(str: string, codeType = 'typescript'): string {
+    return `\`\`\`${codeType}
 ${str}
 \`\`\``;
 }
