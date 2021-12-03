@@ -1,7 +1,4 @@
-export function generateSamples(
-    size = 10000,
-    fillInCallback: () => unknown
-): unknown[] {
+export function generateSamples(size = 10000, fillInCallback: () => unknown): unknown[] {
     return Array(size)
         .fill(0)
         .map(() => fillInCallback());
@@ -34,11 +31,7 @@ export function generateBooleanArr(size = 10000) {
 export function generateNullUndefinedArr(size = 10000) {
     return Array(size)
         .fill(0)
-        .map(() =>
-            Math.floor(Math.random() * 12345678901412341) % 2 === 0
-                ? null
-                : undefined
-        );
+        .map(() => (Math.floor(Math.random() * 12345678901412341) % 2 === 0 ? null : undefined));
 }
 
 export function generateStringArr(size = 10000) {
@@ -72,29 +65,19 @@ export function generateStringArr(size = 10000) {
     ];
     return Array(size)
         .fill(0)
-        .map(
-            (_, i) =>
-                alphabet[
-                    (i * Math.random() * 12345678901412341) % alphabet.length
-                ]
-        );
+        .map((_, i) => alphabet[(i * Math.random() * 12345678901412341) % alphabet.length]);
 }
 
-export function generateMixedPrimitivesArray(
-    size = 10000,
-    withNullAndUndefined = false
-) {
+export function generateMixedPrimitivesArray(size = 10000, withNullAndUndefined = false) {
     const methodsCalled = withNullAndUndefined ? 6 : 4;
-
+    const sizePerMethod = Math.floor(size / methodsCalled);
     return shuffleArray([
-        ...generateStringArr(size / methodsCalled),
-        ...generateNumberArr(size / methodsCalled),
-        ...generateBooleanArr(size / methodsCalled),
-        ...generateNullUndefinedArr(size / methodsCalled),
-        ...(withNullAndUndefined ? generateNullArr(size / methodsCalled) : []),
-        ...(withNullAndUndefined
-            ? generateUndefinedArr(size / methodsCalled)
-            : []),
+        ...generateStringArr(sizePerMethod),
+        ...generateNumberArr(sizePerMethod),
+        ...generateBooleanArr(sizePerMethod),
+        ...generateNullUndefinedArr(sizePerMethod),
+        ...(withNullAndUndefined ? generateNullArr(sizePerMethod) : []),
+        ...(withNullAndUndefined ? generateUndefinedArr(sizePerMethod) : []),
     ]);
 }
 

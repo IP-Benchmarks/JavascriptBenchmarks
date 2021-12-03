@@ -41,3 +41,13 @@ The benchmark names are taken from the used file and function names.
 
 -   Lint and format the file. This step will be done automatically on commit. Please do not bypass this step.
 -   Submit the PR.
+
+# Roadmap
+
+-   ~~Schedule automatic benchmarks rerun~~
+-   ~~Create generator script~~
+-   Improve scripts performance using `async` code
+-   Add charts
+-   Add `Popular benchmarks category`
+-   Add `Related to` section for each benchmark
+-   Order benchmarks based on category

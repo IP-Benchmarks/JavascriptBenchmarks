@@ -1,34 +1,39 @@
 {
-    "npmScope": "javascript-benchmarks",
-    "affected": {
-        "defaultBase": "main"
+  "npmScope": "javascript-benchmarks",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/node"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
     },
-    "cli": {
-        "defaultCollection": "@nrwl/node"
-    },
-    "implicitDependencies": {
-        "package.json": {
-            "dependencies": "*",
-            "devDependencies": "*"
-        },
-        ".eslintrc.json": "*"
-    },
-    "tasksRunnerOptions": {
-        "default": {
-            "runner": "@nrwl/nx-cloud",
-            "options": {
-                "cacheableOperations": ["build", "lint", "test", "e2e"],
-                "accessToken": "MTNjMzdjNWUtZTA0Ni00NWQ2LTg1MGEtMmI0NGZhMmFmM2Y3fHJlYWQtd3JpdGU="
-            }
-        }
-    },
-    "targetDependencies": {
-        "build": [
-            {
-                "target": "build",
-                "projects": "dependencies"
-            }
-        ]
-    },
-    "defaultProject": "runner"
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "MTNjMzdjNWUtZTA0Ni00NWQ2LTg1MGEtMmI0NGZhMmFmM2Y3fHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "defaultProject": "runner"
 }
