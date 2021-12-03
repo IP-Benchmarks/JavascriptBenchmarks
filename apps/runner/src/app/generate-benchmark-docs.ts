@@ -7,7 +7,7 @@ import { generateStackblitz } from './generate-stackblitz';
 export function createSummaryFile(benchmarkFiles: string[]) {
     const paths = benchmarkFiles.map((file) => [
         file.split('/').pop().replace('.ts', ''),
-        file.split('/').pop().replace('.ts', '.md'),
+        `./docs/${file.split('/').pop().replace('.ts', '.md')}`,
     ]);
     const list = paths.map((path) => `- [${dashToSentence(path[0])}](${path[1]})`).join('\n');
     const summaryFile = `# Table of Contents
