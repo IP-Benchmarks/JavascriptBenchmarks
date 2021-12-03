@@ -1,0 +1,32 @@
+name: Update all docs
+
+on: workflow_dispatch
+
+
+
+jobs:
+    run-benchmark:
+        runs-on: ubuntu-latest # windows-latest | macos-latest
+        name: Run benchmarks for changed-files
+        steps:
+            - name: Get repo
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0 # OR "2" -> To retrieve the preceding commit.
+
+            - name: Get changed files
+              uses: actions/setup-node@v2
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run benchmark for all modified files
+              run: |
+                  npm run build
+                  npm start --commit-changes
+
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: ${{ github.ref }}
