@@ -23,16 +23,20 @@ export function createBenchmarkDoc(benchmarks: IBenchmark[], benchmarkPath: stri
     const outputFolderPath = `./docs`;
     const outputFilePath = `${benchmarkName}.md`;
     const title = benchmarks.map((b) => b.name).join(' vs ');
+    const benchmarksSortedByPerformance = benchmarks.sort((a, b) => b.opsPerSec - a.opsPerSec);
     const readme = `
 # ${title}
 ## Benchmark Results
-### Best Performance: *${benchmarks.sort((a, b) => b.opsPerSec - a.opsPerSec).map((b) => b.name)[0]}*
-${benchmarks.map((b) => createCodeBlock(`${b.name}: ${b.opsPerSec.toFixed(3)} ops/s`)).join('\n\n')}
+### Best Performance: *${benchmarksSortedByPerformance[0].name}*
+### *${benchmarksSortedByPerformance[0].name}* is ${
+        benchmarksSortedByPerformance[0].opsPerSec / benchmarksSortedByPerformance[1].opsPerSec
+    }x faster than *${benchmarksSortedByPerformance[1].name}*
+${benchmarks.map((b) => createCodeBlock(`${b.name}: \n${b.opsPerSec.toFixed(3)} ops/s`)).join('\n\n')}
 
 ## Benchmark Code
 ${createCodeBlock(code)}
 
-## Checkout Benchmark on Stackblitz
+## Checkout the code on Stackblitz
 {% embed url="${generateStackblitz(benchmarkPath)}" %} 
 `;
     writeFileSync(outputFolderPath, outputFilePath, readme);
