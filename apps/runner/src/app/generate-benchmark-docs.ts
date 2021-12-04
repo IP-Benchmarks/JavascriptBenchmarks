@@ -29,9 +29,9 @@ export function createBenchmarkDoc(benchmarks: IBenchmark[], benchmarkPath: stri
 ## Benchmark Results
 ### Best Performance: *${benchmarksSortedByPerformance[0].name}*
 ### *${benchmarksSortedByPerformance[0].name}* is ${
-        benchmarksSortedByPerformance[0].opsPerSec / benchmarksSortedByPerformance[1].opsPerSec
+        (benchmarksSortedByPerformance[0].opsPerSec / benchmarksSortedByPerformance[1].opsPerSec).toFixed(3)
     }x faster than *${benchmarksSortedByPerformance[1].name}*
-${benchmarks.map((b) => createCodeBlock(`${b.name}: \n${b.opsPerSec.toFixed(3)} ops/s`)).join('\n\n')}
+${benchmarks.map((b) => createCodeBlock(`${b.name}: ${b.opsPerSec.toFixed(3)} ops/s`)).join('\n\n')}
 
 ## Benchmark Code
 ${createCodeBlock(code)}
