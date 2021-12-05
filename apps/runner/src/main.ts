@@ -4,7 +4,7 @@ import {
     dashToCamelCase,
     getAllFiles,
     getFilesChanged,
-    IBenchmark,
+    IBenchmark
 } from '@javascript-benchmarks/shared';
 
 import { createBenchmarkDoc, createSummaryFile } from './app/generate-benchmark-docs';
@@ -13,6 +13,7 @@ main().then(() => process.exit(0));
 
 async function main() {
     const myArgs = Array.from(process.argv.slice(2));
+    console.log(process.argv.slice(2), myArgs, myArgs.includes('files-changed'), myArgs.includes('commit-changes'));
     const files = myArgs.includes('files-changed')
         ? await getFilesChanged('libs/benchmarks/src/lib', '.ts', '.spec.')
         : await getAllFiles('libs/benchmarks/src/lib', '.ts', '.spec.');
