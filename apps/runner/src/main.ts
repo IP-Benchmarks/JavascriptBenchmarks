@@ -1,10 +1,9 @@
 import * as jsBenchmarks from '@javascript-benchmarks/benchmarks';
 import { dashToCamelCase, getAllFiles, getFilesChanged, IBenchmark } from '@javascript-benchmarks/shared';
 
-import { createBenchmarkDoc } from './app/generate-benchmark-docs';
+import { createBenchmarkDoc, createSummaryFile } from './app/generate-benchmark-docs';
 
-main().then(() => process.exit(0));
-
+Promise.all([main()]).then(() => process.exit(0));
 async function main() {
     const myArgs = Array.from(process.argv.slice(2));
     const files =
@@ -17,8 +16,7 @@ async function main() {
     });
 
     const allFiles = await getAllFiles('libs/benchmarks/src/lib', '.ts', '.spec.');
-    console.log('Done');
-    // if (myArgs.includes('commit-changes') || myArgs.includes('"commit-changes"')) commitChangesInPipeline();
+    createSummaryFile(allFiles);
 }
 
 async function runBenchmark(path: string) {
