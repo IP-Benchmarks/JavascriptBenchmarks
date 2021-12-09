@@ -6,10 +6,9 @@ import { createBenchmarkDoc, createSummaryFile } from './app/generate-benchmark-
 Promise.all([main()]).then(() => process.exit(0));
 async function main() {
     const myArgs = Array.from(process.argv.slice(2));
-    const files =
-        myArgs.includes('files-changed') || myArgs.includes('"files-changed"')
-            ? await getFilesChanged('libs/benchmarks/src/lib', '.ts', '.spec.')
-            : await getAllFiles('libs/benchmarks/src/lib', '.ts', '.spec.');
+    const files = myArgs.includes('files-changed')
+        ? await getFilesChanged('libs/benchmarks/src/lib', '.ts', '.spec.')
+        : await getAllFiles('libs/benchmarks/src/lib', '.ts', '.spec.');
     files.forEach(async (element) => {
         const benchmarkResults = await runBenchmark(element);
         createBenchmarkDoc(benchmarkResults, element);

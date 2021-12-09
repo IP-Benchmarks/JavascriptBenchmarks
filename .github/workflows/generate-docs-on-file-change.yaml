@@ -25,12 +25,14 @@ jobs:
               run: npm run build
 
             - name: Run benchmarks for all modified files
-              run: npm start files-changed
+              run: npm run start:changes
+
+            - name: Format files
+              run: npm run format
 
             - name: Push changes
-            - name: Commit report
               run: |
-                  git config --global user.name 'Your Name'
-                  git config --global user.email 'your-username@users.noreply.github.com'
-                  git commit -am "Automated report"
+                  git config --global user.name 'Github Action'
+                  git config --global user.email 'github-action@noreply.github.com'
+                  git commit -am "Updated Benchmarks"
                   git push

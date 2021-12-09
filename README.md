@@ -51,3 +51,4 @@ The benchmark names are taken from the used file and function names.
 -   Add `Popular benchmarks category`
 -   Add `Related to` section for each benchmark
 -   Order benchmarks based on category
+-   Sort each benchmark by category
