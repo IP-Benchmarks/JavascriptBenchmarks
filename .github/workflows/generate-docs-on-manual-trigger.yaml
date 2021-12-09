@@ -23,13 +23,14 @@ jobs:
 
             - name: Run benchmarks for all modified files
               run: npm start commit-changes
-              
-            - name: ls
-              run: ls -ltr
-              
-            - name: push
-              uses: dciborow/commit@0.0.1
-              with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
-                  push-branch: main
-                  commit-message: 'Benchmarks update'
+
+            - name: List changed files
+              run: ls -ltr && cd docs && ls -ltr
+
+            - name: Push changes
+            - name: Commit report
+              run: |
+                  git config --global user.name 'Your Name'
+                  git config --global user.email 'your-username@users.noreply.github.com'
+                  git commit -am "Automated report"
+                  git push
