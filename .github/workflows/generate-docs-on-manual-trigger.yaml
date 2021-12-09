@@ -23,6 +23,9 @@ jobs:
 
             - name: Run benchmarks for all modified files
               run: npm start commit-changes
+              
+            - name: ls
+              run: ls
 
             - name: Push changes
               uses: ad-m/github-push-action@master
