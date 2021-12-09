@@ -26,9 +26,10 @@ jobs:
               
             - name: ls
               run: ls -ltr
-
-            - name: GitHub Push
-              uses: ad-m/github-push-action@v0.6.0
+              
+            - name: push
+              uses: dciborow/commit@0.0.1
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  branch: main
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  push-branch: main
+                  commit-message: 'Benchmarks update'
