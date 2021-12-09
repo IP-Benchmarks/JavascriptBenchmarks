@@ -1,11 +1,9 @@
 import { generateMixedPrimitivesArray, IBenchmark, runBenchmark } from '@javascript-benchmarks/shared';
 
 export function test(): Array<IBenchmark> {
-    const matrix = generateMixedPrimitivesArray();
-
     return [
-        runBenchmark('JSON stringify - primitives', jsonStringify, matrix),
-        runBenchmark('Custom stringify - primitives', stringifyPrimitives, matrix),
+        runBenchmark('JSON stringify', jsonStringify, () => generateMixedPrimitivesArray(1000)),
+        runBenchmark('Custom stringify for primitives', stringifyPrimitives, () => generateMixedPrimitivesArray(1000)),
     ];
 }
 

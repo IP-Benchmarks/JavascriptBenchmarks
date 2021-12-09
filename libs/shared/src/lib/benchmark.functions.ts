@@ -10,19 +10,23 @@ export interface IBenchmark {
     /** Operations per second */
     opsPerSec: number;
 
+    /** Samples */
+    samples: string;
     functionBody: string;
     functionName: string;
 }
 export function runBenchmark(
     name: string,
     benchmarkFunction: (...args: unknown[]) => unknown,
-    samples: unknown[]
+    sampleGenerator: () => unknown[],
+    runs = 100
 ): IBenchmark {
     const times: number[] = [];
-
-    samples.forEach((sample) => {
-        times.push(measureTimeMs(() => benchmarkFunction(sample)));
-    });
+    for (let i = 0; i < runs; i++) {
+        sampleGenerator().forEach((sample) => {
+            times.push(measureTimeMs(() => benchmarkFunction(sample)));
+        });
+    }
     const averageTimeMs = times.reduce((acc, curr) => acc + curr, 0) / times.length;
     return {
         name,
@@ -30,6 +34,7 @@ export function runBenchmark(
         opsPerSec: convertToOpsPerSecond(averageTimeMs),
         functionBody: benchmarkFunction.toString(),
         functionName: benchmarkFunction.name,
+        samples: `${runs} runs over ${times.length / runs} unique samples each`,
     };
 }
 

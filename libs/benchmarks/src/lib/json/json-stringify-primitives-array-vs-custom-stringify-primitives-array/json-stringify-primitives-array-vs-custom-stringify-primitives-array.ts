@@ -1,11 +1,13 @@
 import { generateMixedPrimitivesArray, generateSamples, IBenchmark, runBenchmark } from '@javascript-benchmarks/shared';
 
 export function test(): Array<IBenchmark> {
-    const matrix = generateSamples(1000, () => generateMixedPrimitivesArray(1000, true));
-
     return [
-        runBenchmark('JSON stringify - primitives array', jsonStringify, matrix),
-        runBenchmark('Custom stringify - primitives array', stringifyPrimitivesArray, matrix),
+        runBenchmark('JSON stringify', jsonStringify, () =>
+            generateSamples(100, () => generateMixedPrimitivesArray(1000, true))
+        ),
+        runBenchmark('Custom stringify for array of primitives', stringifyPrimitivesArray, () =>
+            generateSamples(100, () => generateMixedPrimitivesArray(1000, true))
+        ),
     ];
 }
 

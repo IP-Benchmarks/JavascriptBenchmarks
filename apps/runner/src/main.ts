@@ -1,13 +1,7 @@
 import * as jsBenchmarks from '@javascript-benchmarks/benchmarks';
-import {
-    commitChangesInPipeline,
-    dashToCamelCase,
-    getAllFiles,
-    getFilesChanged,
-    IBenchmark,
-} from '@javascript-benchmarks/shared';
+import { dashToCamelCase, getAllFiles, getFilesChanged, IBenchmark } from '@javascript-benchmarks/shared';
 
-import { createBenchmarkDoc, createSummaryFile } from './app/generate-benchmark-docs';
+import { createBenchmarkDoc } from './app/generate-benchmark-docs';
 
 main().then(() => process.exit(0));
 
@@ -23,9 +17,8 @@ async function main() {
     });
 
     const allFiles = await getAllFiles('libs/benchmarks/src/lib', '.ts', '.spec.');
-    createSummaryFile(allFiles);
-
-    if (myArgs.includes('commit-changes') || myArgs.includes('"commit-changes"')) commitChangesInPipeline();
+    console.log('Done');
+    // if (myArgs.includes('commit-changes') || myArgs.includes('"commit-changes"')) commitChangesInPipeline();
 }
 
 async function runBenchmark(path: string) {

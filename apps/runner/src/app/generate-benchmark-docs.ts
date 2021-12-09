@@ -27,13 +27,14 @@ export function createBenchmarkDoc(benchmarks: IBenchmark[], benchmarkPath: stri
     const readme = `
 # ${title}
 ## Benchmark Results
-### Best Performance: *${benchmarksSortedByPerformance[0].name}*
-### *${benchmarksSortedByPerformance[0].name}* is ${
-        (benchmarksSortedByPerformance[0].opsPerSec / benchmarksSortedByPerformance[1].opsPerSec).toFixed(3)
-    }x faster than *${benchmarksSortedByPerformance[1].name}*
-${benchmarks.map((b) => createCodeBlock(`${b.name}: ${b.opsPerSec.toFixed(3)} ops/s`)).join('\n\n')}
+### Best Performance: **${benchmarksSortedByPerformance[0].name}**
+#### **${benchmarksSortedByPerformance[0].name}** is ***${(
+        Math.round((benchmarksSortedByPerformance[0].opsPerSec / benchmarksSortedByPerformance[1].opsPerSec) * 100) /
+        100
+    ).toFixed(2)}x*** faster than **${benchmarksSortedByPerformance[1].name}**
+${benchmarks.map((b) => createCodeBlock(`${b.name}: ${b.opsPerSec.toFixed(3)} ops/s (${b.samples})`)).join('\n\n')}
 
-## Benchmark Code
+## Code
 ${createCodeBlock(code)}
 
 ## Checkout the code on Stackblitz

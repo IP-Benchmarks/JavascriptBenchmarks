@@ -1,4 +1,4 @@
-export function generateSamples(size = 10000, fillInCallback: () => unknown): unknown[] {
+export function generateSamples<T>(size = 10000, fillInCallback: () => T): T[] {
     return Array(size)
         .fill(0)
         .map(() => fillInCallback());

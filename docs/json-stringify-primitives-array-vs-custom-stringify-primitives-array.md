@@ -1,26 +1,28 @@
 
-# JSON stringify - primitives array vs Custom stringify - primitives array
-## Benchmark Results
-### Best Performance: *JSON stringify - primitives array*
-### *JSON stringify - primitives array* is 1.335x faster than *Custom stringify - primitives array*
+# JSON stringify vs Custom stringify for array of primitives
+## Results
+### Best Performance: **JSON stringify**
+#### **JSON stringify** is **1.3x** faster than ***Custom stringify for array of primitives***
 ```typescript
-JSON stringify - primitives array: 5895.566 ops/s
+JSON stringify: 5624.663 ops/s (100 runs over 100 unique samples each)
 ```
 
 ```typescript
-Custom stringify - primitives array: 4415.153 ops/s
+Custom stringify for array of primitives: 4456.217 ops/s (100 runs over 100 unique samples each)
 ```
 
-## Benchmark Code
+## Code
 ```typescript
 import { generateMixedPrimitivesArray, generateSamples, IBenchmark, runBenchmark } from '@javascript-benchmarks/shared';
 
 export function test(): Array<IBenchmark> {
-    const matrix = generateSamples(1000, () => generateMixedPrimitivesArray(1000, true));
-
     return [
-        runBenchmark('JSON stringify - primitives array', jsonStringify, matrix),
-        runBenchmark('Custom stringify - primitives array', stringifyPrimitivesArray, matrix),
+        runBenchmark('JSON stringify', jsonStringify, () =>
+            generateSamples(100, () => generateMixedPrimitivesArray(1000, true))
+        ),
+        runBenchmark('Custom stringify for array of primitives', stringifyPrimitivesArray, () =>
+            generateSamples(100, () => generateMixedPrimitivesArray(1000, true))
+        ),
     ];
 }
 
