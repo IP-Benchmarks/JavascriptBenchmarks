@@ -4,7 +4,7 @@
     "description": "Javascript performance benchmarks",
     "scripts": {
         "generate": "node tools/generators/benchmark-creator.js",
-        "start": "nx run runner",
+        "start": "node ./dist/apps/runner/main.js",
         "build": "nx build",
         "test": "nx test",
         "lint": "nx lint",
