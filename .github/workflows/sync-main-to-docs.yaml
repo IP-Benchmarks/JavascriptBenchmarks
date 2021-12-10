@@ -7,18 +7,17 @@ on:
     push:
         branches:
             - main
-            
+
 jobs:
     merge-branch:
         runs-on: ubuntu-latest # windows-latest | macos-latest
-            runs-on: ubuntu-latest
-            steps:
-              - name: Get repo
-                uses: actions/checkout@v2
+        steps:
+            - name: Get repo
+              uses: actions/checkout@v2
 
-              - name: Merge main -> docs
-                uses: devmasx/merge-branch@master
-                with:
+            - name: Merge main -> docs
+              uses: devmasx/merge-branch@master
+              with:
                   type: now
                   target_branch: docs
                   github_token: ${{ github.token }}
