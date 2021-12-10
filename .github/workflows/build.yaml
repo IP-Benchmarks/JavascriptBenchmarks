@@ -1,6 +1,6 @@
-name: Update all docs on manual trigger
+name: Build
 
-on: workflow_dispatch
+on: push
 
 jobs:
     run-benchmark:
@@ -23,15 +23,4 @@ jobs:
               run: npm start
 
             - name: Format files
-              run: npm run format
-
-            - name: List changed files
-              run: ls -ltr && cd docs && ls -ltr
-
-            - name: Push changes
-              run: |
-                  git checkout -b docs
-                  git config --global user.name 'Github Action'
-                  git config --global user.email 'github-action@noreply.github.com'
-                  git commit -am "Updated Benchmarks"
-                  git push
+              run: npm run lint
