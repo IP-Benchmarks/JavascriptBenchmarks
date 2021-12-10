@@ -5,10 +5,12 @@ on: workflow_dispatch
 jobs:
     run-benchmark:
         runs-on: ubuntu-latest # windows-latest | macos-latest
-        name: Run benchmarks for changed-files
+        name: Run all benchmarks
         steps:
             - name: Get repo
               uses: actions/checkout@v2
+              with:
+                  ref: docs
 
             - name: Get changed files
               uses: actions/setup-node@v2
@@ -30,7 +32,6 @@ jobs:
 
             - name: Push changes
               run: |
-                  git checkout -b docs
                   git add -A
                   git config --global user.name 'Github Action'
                   git config --global user.email 'github-action@noreply.github.com'
