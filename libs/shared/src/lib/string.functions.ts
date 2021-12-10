@@ -12,3 +12,7 @@ export function dashToCamelCase(str: string) {
 export function dashToSentence(str: string) {
     return camelCaseToSentence(dashToCamelCase(str));
 }
+
+export function firstLetterUpperCase(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
