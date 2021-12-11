@@ -12,7 +12,7 @@ jobs:
               with:
                   ref: docs
 
-            - name: Get changed files
+            - name: Setup node
               uses: actions/setup-node@v2
 
             - name: Install dependencies
