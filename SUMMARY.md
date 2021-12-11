@@ -1,39 +1,12 @@
 # `Table of Contents`
 
--   ## **[Json]()**
+-   ## **[`Json`]()**
 
     -   [JSON stringify vs Custom stringify for array of primitives](./docs/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
 
     -   [Json Stringify Primitives Vs Custom Stringify Primitives](./docs/json-stringify-primitives-vs-custom-stringify-primitives.md)
 
--   ## [**Object**](#Object)
+-   ## **[`Object`]()**
     -   [JSON stringify vs Custom stringify for array of primitives](./docs/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
 
--   ## **[Json1]()**
-    -   [JSON stringify vs Custom stringify for array of primitives](./docs/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
-    -   [Json Stringify Primitives Vs Custom Stringify Primitives](./docs/json-stringify-primitives-vs-custom-stringify-primitives.md)
-
--   ## [Json2](#Json)
-
-    -   [JSON stringify vs Custom stringify for array of primitives](./docs/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
-
-    -   [Json Stringify Primitives Vs Custom Stringify Primitives](./docs/json-stringify-primitives-vs-custom-stringify-primitives.md)
-
--   [Json3]()
-
-    -   [JSON stringify vs Custom stringify for array of primitives](./docs/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
-
-    -   [Json Stringify Primitives Vs Custom Stringify Primitives](./docs/json-stringify-primitives-vs-custom-stringify-primitives.md)
-
-
--  **[Json4]()**
-    -   [JSON stringify vs Custom stringify for array of primitives](./docs/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
-    -   [Json Stringify Primitives Vs Custom Stringify Primitives](./docs/json-stringify-primitives-vs-custom-stringify-primitives.md)
-
-
--   [Json5]()
-    -   [JSON stringify vs Custom stringify for array of primitives](./docs/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
-    -   [Json Stringify Primitives Vs Custom Stringify Primitives](./docs/json-stringify-primitives-vs-custom-stringify-primitives.md)
-
-
-### `Last updated on:` `12/11/2021 0:34:17`
+### `Last updated on:` `12/11/2021 0:42:56`
