@@ -1,7 +1,7 @@
 # `Table of Contents`
 
 
--  **`[Json4](/SUMMARY.md)`**
+-  **[`Json4`](/SUMMARY.md)**
     -   [JSON1 stringify vs Custom stringify for array of primitives](./docs/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
     -   [Json 2Stringify Primitives Vs Custom Stringify Primitives](./docs/json-stringify-primitives-vs-custom-stringify-primitives.md)
 
