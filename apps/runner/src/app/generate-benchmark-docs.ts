@@ -34,22 +34,29 @@ export function createSummaryFile(benchmarkFiles: string[]) {
         benchmarks.map(
             (benchmark) => `[${benchmark.title}](./docs/${category.toLocaleLowerCase()}/${benchmark.filePath})`
         );
-    const list = sortedCategories
-        .map(
-            (categoryName) =>
-                `${createListItem(`**[${createEmphasisBlock(categoryName)}](/SUMMARY.md)**`, 1)}${createList(
+    const createListOfBenchmarks = (withEmphasis = false) =>
+        sortedCategories
+            .map((categoryName) => {
+                const categoryItem = withEmphasis
+                    ? `## **[${createEmphasisBlock(categoryName)}](/SUMMARY-ALT.md)**`
+                    : `[${categoryName}](/SUMMARY-ALT.md)`;
+                return `${createListItem(categoryItem, 1)}${createList(
                     generateBenchmarkList(groupedDataByCategory[categoryName], categoryName),
                     2
-                )}`
-        )
-        .join('\n');
+                )}`;
+            })
+            .join('\n');
 
-    const summaryFile = `# ${createEmphasisBlock('Table of Contents')}
-${list}
+    const createContentsLink = (withEmphasis = false) =>
+        withEmphasis ? `## **[${createEmphasisBlock('Contents')}](/SUMMARY-ALT.md)**` : `[Contents](/SUMMARY-ALT.md)`;
+    const createSummaryFile = (withEmphasis = false) => `# ${createEmphasisBlock('Table of Contents')}
+${createListItem(createContentsLink(withEmphasis), 1)}
+${createListOfBenchmarks(withEmphasis)}
 
 ${createLastUpdatedOnBlock()}
 `;
-    writeFileSync('./', 'SUMMARY.md', summaryFile);
+    writeFileSync('./', 'SUMMARY.md', createSummaryFile());
+    writeFileSync('./', 'SUMMARY-ALT.md', createSummaryFile(true));
 }
 
 export function createBenchmarkDoc(benchmarks: IBenchmark[], benchmarkPath: string): void {
@@ -122,7 +129,6 @@ function getCategoriesFromFile(file: string, defaultCategory?: string): string[]
 }
 
 function createLastUpdatedOnBlock() {
-    return `#### ${createEmphasisBlock('Last updated on:')} ${createEmphasisBlock(
-        `${new Date().toLocaleDateString()} ${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`
-    )}`;
+    const str = `Last updated on: ${new Date().toLocaleDateString()} ${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`;
+    return `#### ${createEmphasisBlock(str)}`;
 }
