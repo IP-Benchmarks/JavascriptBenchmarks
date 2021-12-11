@@ -7,14 +7,14 @@ on:
 jobs:
     run-benchmark:
         runs-on: ubuntu-latest # windows-latest | macos-latest
-        name: Run benchmarks for changed-files
+        name: Run all benchmarks
         steps:
             - name: Get repo
               uses: actions/checkout@v2
               with:
                   ref: docs
 
-            - name: Get changed files
+            - name: Setup node
               uses: actions/setup-node@v2
 
             - name: Install dependencies

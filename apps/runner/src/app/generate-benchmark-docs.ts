@@ -35,7 +35,7 @@ export function createSummaryFile(benchmarkFiles: string[]) {
     const list = sortedCategories
         .map(
             (categoryName) =>
-                `${createListItem(`## **${createEmphasisBlock(categoryName)}**`, 1)}${createList(
+                `${createListItem(`## **[${createEmphasisBlock(categoryName)}]()**`, 1)}${createList(
                     generateBenchmarkList(groupedDataByCategory[categoryName]),
                     2
                 )}`
