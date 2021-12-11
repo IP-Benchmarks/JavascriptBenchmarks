@@ -18,7 +18,7 @@ export function createSummaryFile(benchmarkFiles: string[]) {
         categories: getCategoriesFromFile(file, file.split(fixedPath).pop().split('/')[0]).map((x) =>
             firstLetterUpperCase(x)
         ),
-        filePath: `./docs/${file.split('/').pop().replace('.ts', '.md')}`,
+        filePath: `${file.split('/').pop().replace('.ts', '.md')}`,
     }));
     const groupedDataByCategory: Record<string, typeof benchmarksData> = benchmarksData.reduce((acc, curr) => {
         curr.categories.forEach((category) => {
@@ -30,13 +30,15 @@ export function createSummaryFile(benchmarkFiles: string[]) {
 
     const sortedCategories = Object.keys(groupedDataByCategory).sort();
 
-    const generateBenchmarkList = (benchmarks: typeof benchmarksData) =>
-        benchmarks.map((benchmark) => `[${benchmark.title}](${benchmark.filePath})`);
+    const generateBenchmarkList = (benchmarks: typeof benchmarksData, category: string) =>
+        benchmarks.map(
+            (benchmark) => `[${benchmark.title}](./docs/${category.toLocaleLowerCase()}/${benchmark.filePath})`
+        );
     const list = sortedCategories
         .map(
             (categoryName) =>
                 `${createListItem(`**[${createEmphasisBlock(categoryName)}](/SUMMARY.md)**`, 1)}${createList(
-                    generateBenchmarkList(groupedDataByCategory[categoryName]),
+                    generateBenchmarkList(groupedDataByCategory[categoryName], categoryName),
                     2
                 )}`
         )
@@ -54,6 +56,10 @@ export function createBenchmarkDoc(benchmarks: IBenchmark[], benchmarkPath: stri
     const code = readFileSync(benchmarkPath);
     const benchmarkName = benchmarkPath.split('/').pop().replace('.ts', '');
     const outputFolderPath = `./docs`;
+    const fixedPath = 'libs/benchmarks/src/lib/';
+    const categories = getCategoriesFromFile(benchmarkPath, benchmarkPath.split(fixedPath).pop().split('/')[0]).map(
+        (x) => firstLetterUpperCase(x)
+    );
     const outputFilePath = `${benchmarkName}.md`;
     const title = getTitleFromFile(benchmarkPath, benchmarks.map((b) => b.name).join(' vs '));
     const benchmarksSortedByPerformance = benchmarks.sort((a, b) => b.opsPerSec - a.opsPerSec);
@@ -78,7 +84,9 @@ ${createCodeBlock(code)}
 
 ${createLastUpdatedOnBlock()}
 `;
-    writeFileSync(outputFolderPath, outputFilePath, readme);
+    categories.forEach((category) => {
+        writeFileSync(`${outputFolderPath}/${category.toLocaleLowerCase()}`, outputFilePath, readme);
+    });
 }
 
 function createCodeBlock(str: string, codeType = 'typescript'): string {
@@ -114,7 +122,7 @@ function getCategoriesFromFile(file: string, defaultCategory?: string): string[]
 }
 
 function createLastUpdatedOnBlock() {
-    return `### ${createEmphasisBlock('Last updated on:')} ${createEmphasisBlock(
+    return `#### ${createEmphasisBlock('Last updated on:')} ${createEmphasisBlock(
         `${new Date().toLocaleDateString()} ${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`
     )}`;
 }
