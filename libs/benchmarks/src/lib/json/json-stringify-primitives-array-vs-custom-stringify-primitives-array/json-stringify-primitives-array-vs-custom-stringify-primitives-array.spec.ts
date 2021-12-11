@@ -1,6 +1,6 @@
 import {
     jsonStringify,
-    stringifyPrimitivesArray
+    stringifyPrimitivesArray,
 } from './json-stringify-primitives-array-vs-custom-stringify-primitives-array';
 
 describe('json-stringify-primitives-array-vs-custom-stringify-primitives-array.spec', () => {
