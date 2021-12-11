@@ -1,10 +1,15 @@
-# `Table of Contents`
+# Table of contents
 
--   **[`Json`](/SUMMARY.md)**
-    -   [JSON stringify vs Custom stringify for array of primitives](./docs/json/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
-    -   [Json Stringify Primitives Vs Custom Stringify Primitives](./docs/json/json-stringify-primitives-vs-custom-stringify-primitives.md)
+* [README](README.md)
+* [Json](SUMMARY.md)
+  * [JSON stringify vs Custom stringify for array of primitives](docs/json/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
+  * [Json Stringify Primitives Vs Custom Stringify Primitives](docs/json/json-stringify-primitives-vs-custom-stringify-primitives.md)
+*
 
--   **[`Object`](/SUMMARY.md)**
-    -   [JSON stringify vs Custom stringify for array of primitives](./docs/object/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
+## Group 1
 
-#### `Last updated on:` `12/11/2021 1:38:9`
+* [Page 1](group-1/page-1.md)
+
+***
+
+* [Page 2](page-2.md)
