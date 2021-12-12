@@ -37,7 +37,7 @@ export function createSummaryFile(benchmarkFiles: string[]) {
 
     const generateBenchmarkList = (benchmarks: typeof benchmarksData, category: string) =>
         benchmarks.map(
-            (benchmark) => `[${benchmark.title}](docs/${category.toLocaleLowerCase()}/${benchmark.filePath})`
+            (benchmark) => `[${benchmark.title}](/docs/${category.toLocaleLowerCase()}/${benchmark.filePath})`
         );
 
     const createListOfBenchmarks = (withEmphasis = false) =>
@@ -46,8 +46,8 @@ export function createSummaryFile(benchmarkFiles: string[]) {
                 const category = categoryName.toLocaleLowerCase();
                 const categoryItem = (withEmphasis = false) =>
                     withEmphasis
-                        ? `## **[${createEmphasisBlock(categoryName)}](docs/${category}/SUMMARY.md)**`
-                        : `[${categoryName}](docs/${category}/SUMMARY.md)`;
+                        ? `## **[${createEmphasisBlock(categoryName)}](/docs/${category}/SUMMARY.md)**`
+                        : `[${categoryName}](/docs/${category}/SUMMARY.md)`;
 
                 const categorySummaryFile = `# ${createEmphasisBlock('Table of Contents')}
 ${createListItem(categoryItem(true), 1)}${createList(
@@ -67,7 +67,7 @@ ${createLastUpdatedOnBlock()}
             .join('\n');
 
     const createContentsLink = (withEmphasis = false) =>
-        withEmphasis ? `## **[${createEmphasisBlock('Contents')}](docs/SUMMARY.md)**` : `[Contents](docs/SUMMARY.md)`;
+        withEmphasis ? `## **[${createEmphasisBlock('Contents')}](/docs/SUMMARY.md)**` : `[Contents](/docs/SUMMARY.md)`;
 
     const createSummaryFile = (withEmphasis = false) => `# ${createEmphasisBlock('Table of Contents')}
 ${createListItem(createContentsLink(withEmphasis), 1)}
