@@ -11,4 +11,4 @@
 -   ## **[`Object`](/SUMMARY-ALT.md)**
     -   [JSON stringify vs Custom stringify for array of primitives](./docs/object/json-stringify-primitives-array-vs-custom-stringify-primitives-array.md)
 
-#### `Last updated on: 12/11/2021 2:2:16`
+#### `Last updated on: 12/12/2021 0:46:54`
