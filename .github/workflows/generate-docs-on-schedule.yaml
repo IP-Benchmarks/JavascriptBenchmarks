@@ -15,7 +15,7 @@ jobs:
                   ref: docs
 
             - name: Delete current docs
-              run: rm -rf docs && rm -rf SUMMARY.md && rm -rf SUMMARY-ALT.md
+              run: rm -rf docs
 
             - name: Setup node
               uses: actions/setup-node@v2
