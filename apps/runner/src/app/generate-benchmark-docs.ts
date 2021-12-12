@@ -37,7 +37,7 @@ export function createSummaryFile(benchmarkFiles: string[]) {
 
     const generateBenchmarkList = (benchmarks: typeof benchmarksData, category: string) =>
         benchmarks.map(
-            (benchmark) => `[${benchmark.title}](/docs/${category.toLocaleLowerCase()}/${benchmark.filePath})`
+            (benchmark) => `[${benchmark.title}](docs/${category.toLocaleLowerCase()}/${benchmark.filePath})`
         );
 
     const createListOfBenchmarks = (withEmphasis = false) =>
@@ -57,7 +57,7 @@ ${createListItem(categoryItem(true), 1)}${createList(
 
 ${createLastUpdatedOnBlock()}
 `;
-                writeFileSync(`/docs/${category}`, 'SUMMARY.md', categorySummaryFile);
+                writeFileSync(`./docs/${category}`, 'SUMMARY.md', categorySummaryFile);
 
                 return `${createListItem(categoryItem(withEmphasis), 1)}${createList(
                     generateBenchmarkList(groupedDataByCategory[categoryName], categoryName),
@@ -75,8 +75,8 @@ ${createListOfBenchmarks(withEmphasis)}
 
 ${createLastUpdatedOnBlock()}
 `;
-    writeFileSync('/', 'SUMMARY.md', createSummaryFile());
-    writeFileSync('/docs', 'SUMMARY.md', createSummaryFile(true));
+    writeFileSync('./', 'SUMMARY.md', createSummaryFile());
+    writeFileSync('./docs', 'SUMMARY.md', createSummaryFile(true));
 }
 
 export function createBenchmarkDoc(benchmarks: IBenchmark[], benchmarkPath: string): void {
