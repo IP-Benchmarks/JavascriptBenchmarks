@@ -6,4 +6,4 @@
 
     -   [Json Stringify Primitives Vs Custom Stringify Primitives](/docs/json/json-stringify-primitives-vs-custom-stringify-primitives.md)
 
-#### `Last updated on: 1/31/2022 0:43:43`
+#### `Last updated on: 2/1/2022 0:47:15`
