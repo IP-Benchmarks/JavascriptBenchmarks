@@ -4,14 +4,14 @@
 
 ### Best Performance: **JSON stringify**
 
-#### **JSON stringify** is **_`1.69x`_** faster than **Custom stringify for array of primitives**
+#### **JSON stringify** is **_`1.87x`_** faster than **Custom stringify for array of primitives**
 
 ```typescript
-JSON stringify: 23665.763 ops/s (100 runs over 100 unique samples each)
+JSON stringify: 24448.125 ops/s (100 runs over 100 unique samples each)
 ```
 
 ```typescript
-Custom stringify for array of primitives: 13991.543 ops/s (100 runs over 100 unique samples each)
+Custom stringify for array of primitives: 13088.177 ops/s (100 runs over 100 unique samples each)
 ```
 
 ## Code
@@ -56,4 +56,4 @@ function stringifyPrimitives(value: unknown): string {
 
 {% embed url="https://stackblitz.com/github/IP-Benchmarks/JavascriptBenchmarks/tree/main?file=libs/benchmarks/src/lib/json/json-stringify-primitives-array-vs-custom-stringify-primitives-array/json-stringify-primitives-array-vs-custom-stringify-primitives-array.ts" %}
 
-#### `Last updated on: 8/25/2026 1:4:29`
+#### `Last updated on: 8/26/2026 1:6:41`
